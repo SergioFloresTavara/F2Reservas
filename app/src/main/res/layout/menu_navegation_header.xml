@@ -11,12 +11,13 @@
         android:layout_height="80dp"
         android:src="@drawable/logolargo"
         android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
 
         />
     <View
         android:layout_below="@id/imView"
         android:layout_width="match_parent"
-        style="line"
+        style="@style/line"
         />
 
 </RelativeLayout>
