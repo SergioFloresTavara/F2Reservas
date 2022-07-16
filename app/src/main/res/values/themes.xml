@@ -12,5 +12,10 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <style name="line">
+            <item name="android:background">@color/lightgrey</item>
+            <item name="android:layout_marginTop">10dp</item>
+            <item name="android:layout_height">1dp</item>
+        </style>
     </style>
 </resources>
