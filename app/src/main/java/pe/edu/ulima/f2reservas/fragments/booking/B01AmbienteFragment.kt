@@ -34,10 +34,10 @@ class B01AmbienteFragment : Fragment() {
             fragmentManager?.beginTransaction()!!.replace(R.id.fragmentContainerView,B03JengaFragment()).commit()
         }
         binding.AjedrezBtn.setOnClickListener{
-            fragmentManager?.beginTransaction()!!.replace(R.id.fragmentContainerView,B04CubiculosFragment()).commit()
+            fragmentManager?.beginTransaction()!!.replace(R.id.fragmentContainerView,B05AjedrezFragment()).commit()
         }
         binding.CubiculoBtn.setOnClickListener{
-            fragmentManager?.beginTransaction()!!.replace(R.id.fragmentContainerView,B05AjedrezFragment()).commit()
+            fragmentManager?.beginTransaction()!!.replace(R.id.fragmentContainerView,B04CubiculosFragment()).commit()
         }
 
         return binding.root

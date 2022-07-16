@@ -6,11 +6,26 @@
     tools:context=".fragments.booking.B02PpFragment">
 
     <TextView
+        android:id="@+id/titulo"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:text="Tenis de mesa"
         android:textSize="30dp"
         android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="Tercer piso del F2, dos mesas disponibles para los alumnos"
+        android:textSize="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_below="@+id/titulo"
+        />
+
+
+
 
 </RelativeLayout>
