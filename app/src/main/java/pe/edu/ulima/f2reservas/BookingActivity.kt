@@ -7,6 +7,7 @@ import android.view.MenuItem
 import androidx.core.view.GravityCompat
 import pe.edu.ulima.f2reservas.databinding.ActivityBookingBinding
 import pe.edu.ulima.f2reservas.databinding.ActivityInformationBinding
+import pe.edu.ulima.f2reservas.fragments.booking.B01AmbienteFragment
 
 class BookingActivity : AppCompatActivity() {
     private lateinit var binding: ActivityBookingBinding
@@ -15,6 +16,10 @@ class BookingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityBookingBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
+        supportFragmentManager.beginTransaction().add(binding.fragmentContainerView.id,B01AmbienteFragment()).commit()
+
 
         binding.toolbarNombre.setOnClickListener{
             binding.drawerLayoutB.openDrawer(GravityCompat.START)
@@ -35,6 +40,9 @@ class BookingActivity : AppCompatActivity() {
                     R.id.navBooking->{}
                     R.id.navMoreInfo->{
                         startActivity(Intent(this,InformationActivity::class.java))
+                    }
+                    R.id.navCerrarSesion->{
+                        startActivity(Intent(this,LoginActivity::class.java))
                     }
                     else->{
                         return true

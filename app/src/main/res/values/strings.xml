@@ -3,4 +3,5 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="checkBox1">Recordarme en este dispositivo</string>
+    <string name="checkBox2">Acepto los términos y condiciones de uso del material de la Universidad</string>
 </resources>

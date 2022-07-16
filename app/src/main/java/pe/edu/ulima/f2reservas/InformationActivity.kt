@@ -35,6 +35,9 @@ class InformationActivity : AppCompatActivity() {
                         startActivity(Intent(this,BookingActivity::class.java))
                     }
                     R.id.navMoreInfo->{}
+                    R.id.navCerrarSesion->{
+                        startActivity(Intent(this,LoginActivity::class.java))
+                    }
                     else->{
                         return true
                     }

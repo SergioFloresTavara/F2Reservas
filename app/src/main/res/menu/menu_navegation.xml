@@ -21,4 +21,9 @@
         android:icon="@drawable/ic_baseline_assignment_24"
         android:title="Más información"/>
 
+    <item
+        android:id="@+id/navCerrarSesion"
+        android:title="Cerrar sesión"
+        android:icon="@drawable/ic_baseline_exit_to_app_24"
+        />
 </menu>
