@@ -3,13 +3,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
     <item
-        android:id="@+id/navCartelera"
-        android:icon="@drawable/ic_baseline_calendar_today_24"
-        android:title="cartelera"/>
+        android:id="@+id/navHome"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="Inicio"/>
 
     <item
-        android:id="@+id/navNosotros"
-        android:icon="@drawable/ic_baseline_contacts_24"
-        android:title="sobre_nosotros"/>
+        android:id="@+id/navYourBookings"
+        android:icon="@drawable/ic_baseline_folder_24"
+        android:title="Reservas"/>
+    <item
+        android:id="@+id/navBooking"
+        android:icon="@drawable/ic_baseline_calendar_today_24"
+        android:title="Reservar"/>
+
+    <item
+        android:id="@+id/navMoreInfo"
+        android:icon="@drawable/ic_baseline_assignment_24"
+        android:title="Más información"/>
 
 </menu>

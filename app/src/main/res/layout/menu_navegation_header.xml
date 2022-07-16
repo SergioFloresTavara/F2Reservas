@@ -10,7 +10,7 @@
         android:layout_width="190dp"
         android:layout_height="80dp"
         android:src="@drawable/logolargo"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="10dp"
 
         />
     <View
