@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <item
+        android:id="@+id/navCartelera"
+        android:icon="@drawable/ic_baseline_calendar_today_24"
+        android:title="cartelera"/>
+
+    <item
+        android:id="@+id/navNosotros"
+        android:icon="@drawable/ic_baseline_contacts_24"
+        android:title="sobre_nosotros"/>
 
 </menu>
