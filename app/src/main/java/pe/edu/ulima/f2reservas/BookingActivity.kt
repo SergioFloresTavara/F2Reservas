@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.Button
 import androidx.core.view.GravityCompat
 import pe.edu.ulima.f2reservas.databinding.ActivityBookingBinding
 import pe.edu.ulima.f2reservas.databinding.ActivityInformationBinding
@@ -19,7 +20,6 @@ class BookingActivity : AppCompatActivity() {
 
 
         supportFragmentManager.beginTransaction().add(binding.fragmentContainerView.id,B01AmbienteFragment()).commit()
-
 
         binding.toolbarNombre.setOnClickListener{
             binding.drawerLayoutB.openDrawer(GravityCompat.START)
