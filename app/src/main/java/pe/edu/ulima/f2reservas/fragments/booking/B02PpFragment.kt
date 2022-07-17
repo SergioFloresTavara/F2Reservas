@@ -27,6 +27,15 @@ class B02PpFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentB02PpBinding.inflate(inflater, container, false)
+        binding.VolverBtn.setOnClickListener{
+            fragmentManager?.beginTransaction()!!.replace(R.id.fragmentContainerView,B01AmbienteFragment()).commit()
+        }
+
+
+
+
+
+
         return binding.root
     }
 

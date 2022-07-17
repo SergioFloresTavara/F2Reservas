@@ -1,11 +1,12 @@
 package pe.edu.ulima.f2reservas.fragments.booking
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import pe.edu.ulima.f2reservas.R
+import pe.edu.ulima.f2reservas.*
 import pe.edu.ulima.f2reservas.databinding.FragmentB05AjedrezBinding
 import pe.edu.ulima.f2reservas.databinding.FragmentB06ReservaExitosaBinding
 
@@ -27,6 +28,14 @@ class B06ReservaExitosaFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentB06ReservaExitosaBinding.inflate(inflater, container, false)
+        binding.ReservasBtn.setOnClickListener{
+            startActivity(Intent(getActivity(), YourBookingsActivity::class.java))
+        }
+        binding.MasInfoBtn.setOnClickListener{
+            startActivity(Intent(getActivity(), InformationActivity::class.java))
+        }
+
+
         return binding.root
     }
 

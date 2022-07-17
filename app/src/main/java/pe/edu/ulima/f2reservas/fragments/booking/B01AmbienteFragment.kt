@@ -28,18 +28,35 @@ class B01AmbienteFragment : Fragment() {
         _binding = FragmentB01AmbienteBinding.inflate(inflater, container, false)
 
         binding.PPBtn.setOnClickListener{
-            fragmentManager?.beginTransaction()!!.replace(R.id.fragmentContainerView,B02PpFragment()).commit()
+            if (binding.checkBox1.isChecked){
+                fragmentManager?.beginTransaction()!!.replace(R.id.fragmentContainerView,B02PpFragment()).commit()
+            }else{
+                binding.ad.setVisibility(View.VISIBLE)
+            }
+
         }
         binding.JengaBtn.setOnClickListener{
-            fragmentManager?.beginTransaction()!!.replace(R.id.fragmentContainerView,B03JengaFragment()).commit()
+            if (binding.checkBox1.isChecked){
+                fragmentManager?.beginTransaction()!!.replace(R.id.fragmentContainerView,B03JengaFragment()).commit()
+            }else{
+                binding.ad.setVisibility(View.VISIBLE)
+            }
         }
         binding.AjedrezBtn.setOnClickListener{
-            fragmentManager?.beginTransaction()!!.replace(R.id.fragmentContainerView,B05AjedrezFragment()).commit()
+            if (binding.checkBox1.isChecked){
+                fragmentManager?.beginTransaction()!!.replace(R.id.fragmentContainerView,B05AjedrezFragment()).commit()
+            }else{
+                binding.ad.setVisibility(View.VISIBLE)
+            }
         }
-        binding.CubiculoBtn.setOnClickListener{
-            fragmentManager?.beginTransaction()!!.replace(R.id.fragmentContainerView,B04CubiculosFragment()).commit()
+        binding.CubiculoBtn.setOnClickListener {
+            if (binding.checkBox1.isChecked) {
+                fragmentManager?.beginTransaction()!!
+                    .replace(R.id.fragmentContainerView, B04CubiculosFragment()).commit()
+            } else {
+                binding.ad.setVisibility(View.VISIBLE)
+            }
         }
-
         return binding.root
     }
 

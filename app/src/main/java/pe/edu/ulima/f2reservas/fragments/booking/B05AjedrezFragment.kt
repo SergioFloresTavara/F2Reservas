@@ -27,6 +27,16 @@ class B05AjedrezFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentB05AjedrezBinding.inflate(inflater, container, false)
+        binding.VolverBtn.setOnClickListener{
+            fragmentManager?.beginTransaction()!!.replace(R.id.fragmentContainerView,B01AmbienteFragment()).commit()
+        }
+
+
+
+
+
+
+
         return binding.root
     }
 

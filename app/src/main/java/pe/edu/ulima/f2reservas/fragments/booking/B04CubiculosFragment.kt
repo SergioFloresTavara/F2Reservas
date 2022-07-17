@@ -26,6 +26,20 @@ class B04CubiculosFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentB04CubiculosBinding.inflate(inflater, container, false)
+        binding.VolverBtn.setOnClickListener{
+            fragmentManager?.beginTransaction()!!.replace(R.id.fragmentContainerView,B01AmbienteFragment()).commit()
+        }
+
+
+
+
+
+
+
+
+
+
+
         return binding.root
     }
 

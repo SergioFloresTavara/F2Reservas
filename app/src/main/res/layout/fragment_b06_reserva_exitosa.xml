@@ -3,12 +3,83 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.booking.B06ReservaExitosaFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:background="@color/gray">
+        <ImageView
+            android:id="@+id/imView"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:foregroundGravity="center"
+            android:src="@drawable/ulimalogo"
+            android:layout_marginTop="50dp"
+            app:layout_constraintBottom_toTopOf="@+id/titulo"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+        <TextView
+            android:id="@+id/titulo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="Su reserva se ha realizado correctamente"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:layout_marginTop="50dp"
+            app:layout_constraintTop_toBottomOf="@id/imView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
+        <TextView
+            android:id="@+id/descripcion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="Acerquese 10 minutos antes de la hora de su reserva al ambiente para asegurar su reserva"
+            android:textSize="17dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="70dp"
+            app:layout_constraintTop_toBottomOf="@+id/titulo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+        <Button
+            android:id="@+id/Reservas_btn"
+            style="@style/Button.Orange"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="40dp"
+            app:layout_constraintTop_toBottomOf="@+id/descripcion"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="Ver reservas"
+            android:textColor="@color/white"
+            android:textStyle="bold"/>
+
+
+        <Button
+            android:id="@+id/MasInfo_btn"
+            style="@style/Button.Gray"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="40dp"
+            app:layout_constraintTop_toBottomOf="@+id/Reservas_btn"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="Más información"
+            android:textColor="@color/white"
+            android:textStyle="bold"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

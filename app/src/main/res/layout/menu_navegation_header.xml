@@ -3,13 +3,14 @@
     android:id="@+id/header"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/orange"
     >
 
     <ImageView
         android:id="@+id/imView"
         android:layout_width="190dp"
         android:layout_height="80dp"
-        android:src="@drawable/logolargo"
+        android:src="@drawable/logoulimawhite"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="5dp"
 

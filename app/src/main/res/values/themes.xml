@@ -21,6 +21,9 @@
     <style name="Button.Orange" parent="ThemeOverlay.AppCompat">
         <item name="android:background">@color/orange</item>
     </style>
+    <style name="Button.Gray" parent="ThemeOverlay.AppCompat">
+        <item name="android:background">@color/gray</item>
+    </style>
     <style name="Orange" parent="ThemeOverlay.AppCompat">
         <item name="android:background">@color/orange</item>
     </style>

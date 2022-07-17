@@ -9,6 +9,7 @@ import androidx.core.view.GravityCompat
 import pe.edu.ulima.f2reservas.databinding.ActivityBookingBinding
 import pe.edu.ulima.f2reservas.databinding.ActivityInformationBinding
 import pe.edu.ulima.f2reservas.fragments.booking.B01AmbienteFragment
+import pe.edu.ulima.f2reservas.fragments.booking.B02PpFragment
 
 class BookingActivity : AppCompatActivity() {
     private lateinit var binding: ActivityBookingBinding
@@ -37,7 +38,8 @@ class BookingActivity : AppCompatActivity() {
                     R.id.navYourBookings->{
                         startActivity(Intent(this,YourBookingsActivity::class.java))
                     }
-                    R.id.navBooking->{}
+                    R.id.navBooking->{
+                        supportFragmentManager?.beginTransaction()!!.replace(R.id.fragmentContainerView,B01AmbienteFragment()).commit()}
                     R.id.navMoreInfo->{
                         startActivity(Intent(this,InformationActivity::class.java))
                     }

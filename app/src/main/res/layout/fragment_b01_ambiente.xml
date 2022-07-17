@@ -3,93 +3,115 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.booking.B01AmbienteFragment">
-
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center_horizontal"
-        android:text="Reserva de ambiente"
-        android:textSize="30dp"
-        android:textStyle="bold" />
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/Volver_btn"
-        style="@style/Button.Orange"
-        android:layout_width="70dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="600dp"
-        android:text="Volver"
-        android:textColor="@color/white"
-        android:textStyle="bold" />
 
-    <LinearLayout
-        android:id="@+id/lay"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="vertical">
-
-        <Button
-            android:id="@+id/PP_btn"
-            style="@style/Button.Orange"
-            android:layout_width="150dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="24dp"
-            android:text="TENIS DE MESA"
-            android:textColor="@color/white"
-            android:textStyle="bold" />
-
-        <Button
-            android:id="@+id/Jenga_btn"
-            style="@style/Button.Orange"
-            android:layout_width="150dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="16dp"
-            android:text="JENGA"
-            android:textColor="@color/white"
-            android:textStyle="bold" />
-
-        <Button
-            android:id="@+id/Ajedrez_btn"
-            style="@style/Button.Orange"
-            android:layout_width="150dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="16dp"
-            android:text="AJEDREZ"
-            android:textColor="@color/white"
-            android:textStyle="bold" />
-
-        <Button
-            android:id="@+id/Cubiculo_btn"
-            style="@style/Button.Orange"
-            android:layout_width="150dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="16dp"
-            android:text="Cubículo"
-            android:textColor="@color/white"
-            android:textStyle="bold" />
-
-        <CheckBox
-            android:id="@+id/checkBox1"
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="50dp"
-            android:layout_marginEnd="16dp"
-            android:padding="7dp"
-            android:text="@string/checkBox2"
-            android:textColor="@color/gray"
-            android:textSize="18sp" />
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:text="Reserva de ambiente"
+            android:textSize="30dp"
+            android:textStyle="bold" />
 
-    </LinearLayout>
+        <Button
+            android:id="@+id/Volver_btn"
+            style="@style/Button.Orange"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginBottom="18dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="Volver"
+            android:textColor="@color/white"
+            android:textStyle="bold"/>
 
+        <LinearLayout
+            android:id="@+id/lay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/PP_btn"
+                style="@style/Button.Orange"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="24dp"
+                android:text="TENIS DE MESA"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/Jenga_btn"
+                style="@style/Button.Orange"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="16dp"
+                android:text="JENGA"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/Ajedrez_btn"
+                style="@style/Button.Orange"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="16dp"
+                android:text="AJEDREZ"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/Cubiculo_btn"
+                style="@style/Button.Orange"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="16dp"
+                android:text="Cubículo"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+            <CheckBox
+                android:id="@+id/checkBox1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginEnd="16dp"
+                android:padding="7dp"
+                android:text="@string/checkBox2"
+                android:textColor="@color/gray"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/ad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginEnd="16dp"
+                android:textColor="@color/red"
+                android:text="Debe aceptar los terminos y condiciones para continuar"
+                android:textSize="12dp"
+                android:visibility="invisible"
+                />
+
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </RelativeLayout>
