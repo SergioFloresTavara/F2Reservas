@@ -13,7 +13,7 @@ class Reservasconnect: Application() {
         super.onCreate()
         Reservasconnect.database = Room.databaseBuilder(this,
             ResultadosDb::class.java,
-            "f2reservas-db").build()
+            "f2reservas").build()
     }
 
 }

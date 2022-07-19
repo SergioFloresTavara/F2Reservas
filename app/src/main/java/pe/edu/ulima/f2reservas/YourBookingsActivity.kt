@@ -5,6 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.core.view.GravityCompat
+import androidx.room.Room
+import pe.edu.ulima.f2reservas.database.Reservasconnect
+import pe.edu.ulima.f2reservas.database.conect.ResultadosDb
 import pe.edu.ulima.f2reservas.databinding.ActivityMainBinding
 import pe.edu.ulima.f2reservas.databinding.ActivityYourBookingsBinding
 import pe.edu.ulima.f2reservas.fragments.booking.B01AmbienteFragment
@@ -12,15 +15,15 @@ import pe.edu.ulima.f2reservas.fragments.yourbookings.Y01YourBookingFragment
 
 class YourBookingsActivity : AppCompatActivity() {
     private lateinit var binding: ActivityYourBookingsBinding
-    private var nombre: String? =null
-    private var contra: String? =null
-    private var guardado: String? =null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityYourBookingsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        Reservasconnect.database = Room.databaseBuilder(this,
+            ResultadosDb::class.java,
+            "f2reservas").build()
 
         supportFragmentManager.beginTransaction().add(binding.fragmentContainerView.id,
             Y01YourBookingFragment()
@@ -38,53 +41,17 @@ class YourBookingsActivity : AppCompatActivity() {
                 binding.drawerLayoutYB.closeDrawer(GravityCompat.START)
                 when(id){
                     R.id.navHome->{
-                        val intent = Intent(this,MainActivity::class.java)
-                        nombre = intent.getStringExtra("NOMBRE")
-                        contra = intent.getStringExtra("CONTRA")
-                        guardado = intent.getStringExtra("G")
-                        val data = Bundle()
-                        data.putString("NOMBRE",nombre)
-                        data.putString("CONTRA",contra)
-                        data.putString("G",guardado)
-                        intent.putExtras(data)
-                        startActivity(intent)
+                        startActivity(Intent(this,MainActivity::class.java))
                     }
                     R.id.navYourBookings->{}
                     R.id.navBooking->{
-                        val intent = Intent(this,BookingActivity::class.java)
-                        nombre = intent.getStringExtra("NOMBRE")
-                        contra = intent.getStringExtra("CONTRA")
-                        guardado = intent.getStringExtra("G")
-                        val data = Bundle()
-                        data.putString("NOMBRE",nombre)
-                        data.putString("CONTRA",contra)
-                        data.putString("G",guardado)
-                        intent.putExtras(data)
-                        startActivity(intent)
+                        startActivity(Intent(this,BookingActivity::class.java))
                     }
                     R.id.navMoreInfo->{
-                        val intent = Intent(this,InformationActivity::class.java)
-                        nombre = intent.getStringExtra("NOMBRE")
-                        contra = intent.getStringExtra("CONTRA")
-                        guardado = intent.getStringExtra("G")
-                        val data = Bundle()
-                        data.putString("NOMBRE",nombre)
-                        data.putString("CONTRA",contra)
-                        data.putString("G",guardado)
-                        intent.putExtras(data)
-                        startActivity(intent)
+                        startActivity(Intent(this,InformationActivity::class.java))
                     }
                     R.id.navCerrarSesion->{
-                        val intent = Intent(this,LoginActivity::class.java)
-                        nombre = intent.getStringExtra("NOMBRE")
-                        contra = intent.getStringExtra("CONTRA")
-                        guardado = intent.getStringExtra("G")
-                        val data = Bundle()
-                        data.putString("NOMBRE",nombre)
-                        data.putString("CONTRA",contra)
-                        data.putString("G",guardado)
-                        intent.putExtras(data)
-                        startActivity(intent)
+                        startActivity(Intent(this,LoginActivity::class.java))
                     }
                     else->{
                         return true

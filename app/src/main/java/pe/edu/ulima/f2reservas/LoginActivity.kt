@@ -5,25 +5,22 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.widget.Toast
+import pe.edu.ulima.f2reservas.controller.GestorUsuario
+import pe.edu.ulima.f2reservas.controller.Usuario
 import pe.edu.ulima.f2reservas.databinding.ActivityLoginBinding
 import pe.edu.ulima.f2reservas.singleton.Datausuario
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
+    var Gestor=GestorUsuario()
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        Toast.makeText(
-            this,
-            Datausuario.nombre.toString(),
-            Toast.LENGTH_SHORT).show()
-
-        Toast.makeText(
-            this,
-            Datausuario.contra.toString(),
-            Toast.LENGTH_SHORT).show()
+        Gestor.obtenerUsuarios()
 
         if(Datausuario.guar=="0" && Datausuario.contra!=null){
             val nom: String? =Datausuario.nombre
@@ -34,24 +31,31 @@ class LoginActivity : AppCompatActivity() {
         }
 
         binding.loginBtn.setOnClickListener{
-            //////el if
-            if(binding.checkBox.isChecked){
-                val nombre: String = binding.eteUsuario!!.text.toString()
-                val contra: String = binding.eteContraseA!!.text.toString()
-                Datausuario.nombre=nombre
-                Datausuario.contra=contra
-                Datausuario.guar="0"
-                startActivity(Intent(this, MainActivity ::class.java))
+            var usuarios:List<Usuario>
+            usuarios=Gestor.obtenerUsuarios()
+            val nombre: String = binding.eteUsuario!!.text.toString()
+            val contra: String = binding.eteContraseA!!.text.toString()
+            if(contra==Gestor.obtenerPassword(nombre,usuarios)){
+                if(binding.checkBox.isChecked){
+                    Datausuario.nombre=nombre
+                    Datausuario.contra=contra
+                    Datausuario.guar="0"
+                    startActivity(Intent(this, MainActivity ::class.java))
 
+                }else{
+                    val nombre: String = binding.eteUsuario!!.text.toString()
+                    val contra: String = binding.eteContraseA!!.text.toString()
+                    Datausuario.nombre=nombre
+                    Datausuario.contra=null
+                    Datausuario.guar="1"
+                    startActivity(Intent(this, MainActivity ::class.java))
+                }
             }else{
-                val nombre: String = binding.eteUsuario!!.text.toString()
-                val contra: String = binding.eteContraseA!!.text.toString()
-                Datausuario.nombre=nombre
-                Datausuario.contra=null
-                Datausuario.guar="1"
-                startActivity(Intent(this, MainActivity ::class.java))
+                Toast.makeText(
+                    this,
+                    "Ingrese las credenciales correctas",
+                    Toast.LENGTH_SHORT).show()
             }
-
 
         }
 

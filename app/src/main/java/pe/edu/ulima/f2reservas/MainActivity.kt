@@ -1,6 +1,7 @@
 package pe.edu.ulima.f2reservas
 
 import android.content.Intent
+import android.content.IntentFilter
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -11,41 +12,50 @@ import androidx.core.view.GravityCompat
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import pe.edu.ulima.f2reservas.databinding.ActivityMainBinding
-import java.io.IOException
 import java.net.HttpURLConnection
 import java.net.URL
 import androidx.lifecycle.lifecycleScope
+import androidx.room.Room
 import com.opencsv.CSVParserBuilder
 import com.opencsv.CSVReaderBuilder
 import com.opencsv.CSVWriter
 import kotlinx.coroutines.launch
 import pe.edu.ulima.f2reservas.database.Reservasconnect
+import pe.edu.ulima.f2reservas.database.conect.ResultadosDb
 import pe.edu.ulima.f2reservas.database.entity.Resultado
-import java.io.FileReader
+import pe.edu.ulima.f2reservas.singleton.Datausuario
+import java.io.*
 import java.nio.charset.StandardCharsets
-import java.io.FileNotFoundException
 
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private var nombre: String? =null
-    private var contra: String? =null
-    private var guardado: String? =null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        if (Datausuario.nombre=="admin") {
+            binding.ReservaBtn.setVisibility(View.INVISIBLE)
+            binding.GenerarDataBtn.setVisibility(View.VISIBLE)
+            binding.descripAdmin.setVisibility(View.VISIBLE)
+            binding.descripUsr.setVisibility(View.INVISIBLE)
+            binding.descripcionUsr2.setVisibility(View.INVISIBLE)
+        }
+        binding.ReservaBtn.setOnClickListener{
+            startActivity(Intent(this,BookingActivity::class.java))
+        }
 
         binding.toolbarNombre.setOnClickListener{
             binding.drawerLayoutM.openDrawer(GravityCompat.START)
         }
         binding.GenerarDataBtn.setOnClickListener{
+            Reservasconnect.database = Room.databaseBuilder(this,
+                ResultadosDb::class.java,
+                "f2reservas").build()
+            limpiar()
             sincronizar()
-            Toast.makeText(
-            this,
-            "Carga diaria generada",
-            Toast.LENGTH_SHORT).show()
+
         }
 
 
@@ -56,52 +66,16 @@ class MainActivity : AppCompatActivity() {
                 when(id){
                     R.id.navHome->{}
                     R.id.navYourBookings->{
-                        val intent = Intent(this,YourBookingsActivity::class.java)
-                        nombre = intent.getStringExtra("NOMBRE")
-                        contra = intent.getStringExtra("CONTRA")
-                        guardado = intent.getStringExtra("G")
-                        val data = Bundle()
-                        data.putString("NOMBRE",nombre)
-                        data.putString("CONTRA",contra)
-                        data.putString("G",guardado)
-                        intent.putExtras(data)
-                        startActivity(intent)
+                        startActivity(Intent(this,YourBookingsActivity::class.java))
                     }
                     R.id.navBooking->{
-                        val intent = Intent(this,BookingActivity::class.java)
-                        nombre = intent.getStringExtra("NOMBRE")
-                        contra = intent.getStringExtra("CONTRA")
-                        guardado = intent.getStringExtra("G")
-                        val data = Bundle()
-                        data.putString("NOMBRE",nombre)
-                        data.putString("CONTRA",contra)
-                        data.putString("G",guardado)
-                        intent.putExtras(data)
-                        startActivity(intent)
+                        startActivity(Intent(this,BookingActivity::class.java))
                     }
                     R.id.navMoreInfo->{
-                        val intent = Intent(this,InformationActivity::class.java)
-                        nombre = intent.getStringExtra("NOMBRE")
-                        contra = intent.getStringExtra("CONTRA")
-                        guardado = intent.getStringExtra("G")
-                        val data = Bundle()
-                        data.putString("NOMBRE",nombre)
-                        data.putString("CONTRA",contra)
-                        data.putString("G",guardado)
-                        intent.putExtras(data)
-                        startActivity(intent)
+                        startActivity(Intent(this,InformationActivity::class.java))
                     }
                     R.id.navCerrarSesion->{
-                        val intent = Intent(this,LoginActivity::class.java)
-                        nombre = intent.getStringExtra("NOMBRE")
-                        contra = intent.getStringExtra("CONTRA")
-                        guardado = intent.getStringExtra("G")
-                        val data = Bundle()
-                        data.putString("NOMBRE",nombre)
-                        data.putString("CONTRA",contra)
-                        data.putString("G",guardado)
-                        intent.putExtras(data)
-                        startActivity(intent)
+                        startActivity(Intent(this,LoginActivity::class.java))
                     }
                     else->{
                         return true
@@ -112,31 +86,52 @@ class MainActivity : AppCompatActivity() {
         )
 
     }
+    fun limpiar(){
+        lifecycleScope.launch(Dispatchers.IO){
+        var nelementos = Reservasconnect.database.resultadosDao().getCount()
+        if(nelementos == 0){
+            Log.d("s","No hay que borrar")
+        }else{
+            Reservasconnect.database.resultadosDao().nukeTable()
+            Log.d("s","Borrado")
+        }}
+    }
 
     fun sincronizar():Boolean{
         lifecycleScope.launch(Dispatchers.IO){
+            runOnUiThread(Runnable {
+                binding.pgBar1!!.visibility = View.VISIBLE
+                binding.pgBar1!!.isIndeterminate = true
+            })
             try {
-//                C:\Users\SF\Downloads\F2Reservas\app\src\main\res\raw
-//                "/F2Reservas/src/main/res/raw/horario.csv"
-                val csvReader = CSVReaderBuilder(FileReader("horarios.csv")).build()
+                val minput=InputStreamReader(assets.open("horario.csv"))
+                val reader = BufferedReader(minput)
+                var line: String
+                var correcto:String="BIEN"
+                while (reader.readLine().also { line = it } != null) {
+                    var row: List<String> = line.split(",")
+                    var actividad = row[0].toString()
+                    var horario = row[1].toString()
+                    var dispo = row[2].toString()
+                    var set = row[3].toString()
 
-                // Read the rest
-                var line: Array<String>? = csvReader.readNext()
-                while (line != null) {
-                    val actividad = line[0]
-                    val horario = line[1]
-                    var dispo = line[2]
-                    var usuario = ""
-                    val set = line[4]
-
-                    var resultado = Resultado(null,actividad,horario,dispo,usuario,set)
-                    println("gaaaaaaaa")
+                    var resultado = Resultado(null, actividad, horario, dispo, "null", set)
+                    println("gaaaaaaaa" + resultado.toString())
                     Reservasconnect.database.resultadosDao().insertarResultado(resultado)
+                    if (actividad=="Cubículo" && horario=="20:00-21:00" && dispo=="Disponible" && set=="6"){
+                        runOnUiThread(Runnable {
+                        binding.pgBar1!!.isIndeterminate = false
+                        binding.pgBar1!!.progress = 100
+                        Toast.makeText(
+                            this@MainActivity,
+                            "Data diaria cargada",
+                            Toast.LENGTH_SHORT).show()
 
-                    line = csvReader.readNext()
+                        })
+                        break
+                    }
                 }
             }catch(ex: IOException){
-                println("nouuuuuuuuuuu"+ex.message+ex.toString())
                 Log.d("Exception",ex.toString())
             }
         }

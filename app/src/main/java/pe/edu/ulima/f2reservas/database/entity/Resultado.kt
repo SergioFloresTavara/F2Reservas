@@ -7,10 +7,10 @@ import org.jetbrains.annotations.NotNull
 @Entity(tableName = "Resultados")
 data class Resultado(
     @PrimaryKey(autoGenerate = true)
-    val id : Int? = 0,
-    val actividad : String,
-    val horario : String,
-    val disponibilidad : String,
-    val usuario : String? = "",
-    val set : String
+    var id : Int? = 0,
+    var actividad : String,
+    var horario : String,
+    var disponibilidad : String,
+    var usuario : String,
+    var set : String
 )

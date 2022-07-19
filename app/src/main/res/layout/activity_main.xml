@@ -38,18 +38,125 @@
             android:layout_below="@id/appb"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/titulo"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:background="@color/orange"
+                android:gravity="center"
+                android:text="#DisfrutaEnElF2"
+                android:textSize="30dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/descripAdmin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:textStyle="bold"
+                android:text="Campo de actualización diaria de ambientes de administrador"
+                android:textSize="30dp"
+                android:layout_marginTop="60dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:visibility="invisible"
+                />
+            <TextView
+                android:id="@+id/descripUsr"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:textStyle="bold"
+                android:text="Disfruta de los ambientes del F2 Ulima"
+                android:textSize="30dp"
+                android:layout_marginTop="100dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                />
+
+
+            <ImageView
+                android:id="@+id/imF2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="60dp"
+                android:src="@drawable/f2"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+
+                />
             <Button
                 android:id="@+id/GenerarData_btn"
                 style="@style/Button.Orange"
                 android:layout_width="95dp"
                 android:layout_height="40dp"
-                android:layout_marginEnd="25dp"
                 android:layout_marginBottom="18dp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imF2"
+                app:layout_constraintStart_toStartOf="parent"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text="Generar data"
+                android:textColor="@color/white"
+                android:textStyle="bold"/>
+
+            <Button
+                android:id="@+id/Reserva_btn"
+                style="@style/Button.Orange"
+                android:layout_width="95dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="18dp"
+                app:layout_constraintTop_toBottomOf="@+id/imF2"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:text="Reservar"
                 android:textColor="@color/white"
                 android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/descripcionUsr2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="Acerquese 10 minutos antes de la hora de su reserva al ambiente para asegurar su reserva"
+                android:textSize="19dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/GenerarData_btn"
+
+                />
+
+            <ProgressBar
+                android:id="@+id/pgBar1"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginHorizontal="80dp"
+                android:indeterminate="true"
+                android:visibility="invisible"
+                android:layout_marginBottom="60dp"
+                android:indeterminateTint="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/GenerarData_btn"
+
+                app:layout_constraintVertical_chainStyle="spread" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
