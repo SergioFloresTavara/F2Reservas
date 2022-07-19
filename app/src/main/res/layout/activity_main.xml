@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appb"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -31,13 +32,27 @@
                     />
             </com.google.android.material.appbar.MaterialToolbar>
 
-            <androidx.fragment.app.FragmentContainerView
-                android:id="@+id/fragmentContainerView"
-                android:layout_below="@id/toolbarNombre"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
         </com.google.android.material.appbar.AppBarLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/fragmentContainerView"
+            android:layout_below="@id/appb"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <Button
+                android:id="@+id/GenerarData_btn"
+                style="@style/Button.Orange"
+                android:layout_width="95dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="25dp"
+                android:layout_marginBottom="18dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text="Reservar"
+                android:textColor="@color/white"
+                android:textStyle="bold"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </RelativeLayout>
 
     <com.google.android.material.navigation.NavigationView

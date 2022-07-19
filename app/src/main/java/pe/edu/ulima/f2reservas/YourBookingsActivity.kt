@@ -7,14 +7,25 @@ import android.view.MenuItem
 import androidx.core.view.GravityCompat
 import pe.edu.ulima.f2reservas.databinding.ActivityMainBinding
 import pe.edu.ulima.f2reservas.databinding.ActivityYourBookingsBinding
+import pe.edu.ulima.f2reservas.fragments.booking.B01AmbienteFragment
+import pe.edu.ulima.f2reservas.fragments.yourbookings.Y01YourBookingFragment
 
 class YourBookingsActivity : AppCompatActivity() {
     private lateinit var binding: ActivityYourBookingsBinding
+    private var nombre: String? =null
+    private var contra: String? =null
+    private var guardado: String? =null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityYourBookingsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        supportFragmentManager.beginTransaction().add(binding.fragmentContainerView.id,
+            Y01YourBookingFragment()
+        ).commit()
+
 
         binding.toolbarNombre.setOnClickListener{
             binding.drawerLayoutYB.openDrawer(GravityCompat.START)
@@ -27,17 +38,53 @@ class YourBookingsActivity : AppCompatActivity() {
                 binding.drawerLayoutYB.closeDrawer(GravityCompat.START)
                 when(id){
                     R.id.navHome->{
-                        startActivity(Intent(this,MainActivity::class.java))
+                        val intent = Intent(this,MainActivity::class.java)
+                        nombre = intent.getStringExtra("NOMBRE")
+                        contra = intent.getStringExtra("CONTRA")
+                        guardado = intent.getStringExtra("G")
+                        val data = Bundle()
+                        data.putString("NOMBRE",nombre)
+                        data.putString("CONTRA",contra)
+                        data.putString("G",guardado)
+                        intent.putExtras(data)
+                        startActivity(intent)
                     }
                     R.id.navYourBookings->{}
                     R.id.navBooking->{
-                        startActivity(Intent(this,BookingActivity::class.java))
+                        val intent = Intent(this,BookingActivity::class.java)
+                        nombre = intent.getStringExtra("NOMBRE")
+                        contra = intent.getStringExtra("CONTRA")
+                        guardado = intent.getStringExtra("G")
+                        val data = Bundle()
+                        data.putString("NOMBRE",nombre)
+                        data.putString("CONTRA",contra)
+                        data.putString("G",guardado)
+                        intent.putExtras(data)
+                        startActivity(intent)
                     }
                     R.id.navMoreInfo->{
-                        startActivity(Intent(this,InformationActivity::class.java))
+                        val intent = Intent(this,InformationActivity::class.java)
+                        nombre = intent.getStringExtra("NOMBRE")
+                        contra = intent.getStringExtra("CONTRA")
+                        guardado = intent.getStringExtra("G")
+                        val data = Bundle()
+                        data.putString("NOMBRE",nombre)
+                        data.putString("CONTRA",contra)
+                        data.putString("G",guardado)
+                        intent.putExtras(data)
+                        startActivity(intent)
                     }
                     R.id.navCerrarSesion->{
-                        startActivity(Intent(this,LoginActivity::class.java))
+                        val intent = Intent(this,LoginActivity::class.java)
+                        nombre = intent.getStringExtra("NOMBRE")
+                        contra = intent.getStringExtra("CONTRA")
+                        guardado = intent.getStringExtra("G")
+                        val data = Bundle()
+                        data.putString("NOMBRE",nombre)
+                        data.putString("CONTRA",contra)
+                        data.putString("G",guardado)
+                        intent.putExtras(data)
+                        startActivity(intent)
                     }
                     else->{
                         return true

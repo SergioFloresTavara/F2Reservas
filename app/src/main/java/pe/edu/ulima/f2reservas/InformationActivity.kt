@@ -10,6 +10,9 @@ import pe.edu.ulima.f2reservas.databinding.ActivityLoginBinding
 
 class InformationActivity : AppCompatActivity() {
     private lateinit var binding: ActivityInformationBinding
+    private var nombre: String? =null
+    private var contra: String? =null
+    private var guardado: String? =null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,17 +29,53 @@ class InformationActivity : AppCompatActivity() {
                 binding.drawerLayoutI.closeDrawer(GravityCompat.START)
                 when(id){
                     R.id.navHome->{
-                        startActivity(Intent(this,MainActivity::class.java))
+                        val intent = Intent(this,MainActivity::class.java)
+                        nombre = intent.getStringExtra("NOMBRE")
+                        contra = intent.getStringExtra("CONTRA")
+                        guardado = intent.getStringExtra("G")
+                        val data = Bundle()
+                        data.putString("NOMBRE",nombre)
+                        data.putString("CONTRA",contra)
+                        data.putString("G",guardado)
+                        intent.putExtras(data)
+                        startActivity(intent)
                     }
                     R.id.navYourBookings->{
-                        startActivity(Intent(this,YourBookingsActivity::class.java))
+                        val intent = Intent(this,YourBookingsActivity::class.java)
+                        nombre = intent.getStringExtra("NOMBRE")
+                        contra = intent.getStringExtra("CONTRA")
+                        guardado = intent.getStringExtra("G")
+                        val data = Bundle()
+                        data.putString("NOMBRE",nombre)
+                        data.putString("CONTRA",contra)
+                        data.putString("G",guardado)
+                        intent.putExtras(data)
+                        startActivity(intent)
                     }
                     R.id.navBooking->{
-                        startActivity(Intent(this,BookingActivity::class.java))
+                        val intent = Intent(this,BookingActivity::class.java)
+                        nombre = intent.getStringExtra("NOMBRE")
+                        contra = intent.getStringExtra("CONTRA")
+                        guardado = intent.getStringExtra("G")
+                        val data = Bundle()
+                        data.putString("NOMBRE",nombre)
+                        data.putString("CONTRA",contra)
+                        data.putString("G",guardado)
+                        intent.putExtras(data)
+                        startActivity(intent)
                     }
                     R.id.navMoreInfo->{}
                     R.id.navCerrarSesion->{
-                        startActivity(Intent(this,LoginActivity::class.java))
+                        val intent = Intent(this,LoginActivity::class.java)
+                        nombre = intent.getStringExtra("NOMBRE")
+                        contra = intent.getStringExtra("CONTRA")
+                        guardado = intent.getStringExtra("G")
+                        val data = Bundle()
+                        data.putString("NOMBRE",nombre)
+                        data.putString("CONTRA",contra)
+                        data.putString("G",guardado)
+                        intent.putExtras(data)
+                        startActivity(intent)
                     }
                     else->{
                         return true
