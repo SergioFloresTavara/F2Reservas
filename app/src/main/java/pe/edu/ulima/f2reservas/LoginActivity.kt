@@ -43,11 +43,10 @@ class LoginActivity : AppCompatActivity() {
                     startActivity(Intent(this, MainActivity ::class.java))
 
                 }else{
-                    val nombre: String = binding.eteUsuario!!.text.toString()
-                    val contra: String = binding.eteContraseA!!.text.toString()
                     Datausuario.nombre=nombre
                     Datausuario.contra=null
                     Datausuario.guar="1"
+                    Datausuario.NomApe=Gestor.obtenerNombre(nombre,usuarios)
                     startActivity(Intent(this, MainActivity ::class.java))
                 }
             }else{
