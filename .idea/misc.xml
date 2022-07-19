@@ -10,12 +10,14 @@
         <entry key="..\:/Users/SF/Downloads/F2Reservas/app/src/main/res/layout/fragment_b01_ambiente.xml" value="0.17572463768115942" />
         <entry key="..\:/Users/SF/Downloads/F2Reservas/app/src/main/res/layout/fragment_b02_pp.xml" value="0.25" />
         <entry key="..\:/Users/SF/Downloads/F2Reservas/app/src/main/res/layout/fragment_b03_jenga.xml" value="0.18568840579710144" />
+        <entry key="..\:/Users/SF/Downloads/F2Reservas/app/src/main/res/layout/fragment_b05_ajedrez.xml" value="0.10729166666666666" />
         <entry key="..\:/Users/SF/Downloads/F2Reservas/app/src/main/res/layout/fragment_b06_reserva_exitosa.xml" value="0.17572463768115942" />
         <entry key="..\:/Users/SF/Downloads/F2Reservas/app/src/main/res/layout/fragment_i01_information.xml" value="0.10729166666666666" />
         <entry key="..\:/Users/SF/Downloads/F2Reservas/app/src/main/res/layout/fragment_y01_your_booking.xml" value="0.18568840579710144" />
         <entry key="..\:/Users/SF/Downloads/F2Reservas/app/src/main/res/layout/item_data.xml" value="0.25" />
         <entry key="..\:/Users/SF/Downloads/F2Reservas/app/src/main/res/layout/item_datayourbookings.xml" value="0.18568840579710144" />
-        <entry key="..\:/Users/SF/Downloads/F2Reservas/app/src/main/res/layout/menu_navegation_header.xml" value="0.14375" />
+        <entry key="..\:/Users/SF/Downloads/F2Reservas/app/src/main/res/layout/menu_navegation_header.xml" value="0.17" />
+        <entry key="..\:/Users/SF/Downloads/F2Reservas/app/src/main/res/menu/menu_navegation.xml" value="0.5" />
         <entry key="..\:/Users/sergi/OneDrive/Documentos/Sergio/Ciclo2022-1/F2Reservas/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.192" />
         <entry key="..\:/Users/sergi/OneDrive/Documentos/Sergio/Ciclo2022-1/F2Reservas/app/src/main/res/drawable/ic_baseline_assignment.xml" value="0.1715" />
         <entry key="..\:/Users/sergi/OneDrive/Documentos/Sergio/Ciclo2022-1/F2Reservas/app/src/main/res/drawable/ic_baseline_calendar_today.xml" value="0.1715" />

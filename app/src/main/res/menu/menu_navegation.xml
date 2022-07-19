@@ -10,7 +10,7 @@
     <item
         android:id="@+id/navYourBookings"
         android:icon="@drawable/ic_baseline_folder_24"
-        android:title="Reservas"/>
+        android:title="Mis reservas"/>
     <item
         android:id="@+id/navBooking"
         android:icon="@drawable/ic_baseline_calendar_today_24"

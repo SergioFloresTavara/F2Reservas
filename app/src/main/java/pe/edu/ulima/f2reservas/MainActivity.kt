@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
 import android.view.View
+import android.widget.TextView
 import android.widget.Toast
 import androidx.core.view.GravityCompat
 import kotlinx.coroutines.Dispatchers
@@ -16,6 +17,7 @@ import java.net.HttpURLConnection
 import java.net.URL
 import androidx.lifecycle.lifecycleScope
 import androidx.room.Room
+import com.google.android.material.navigation.NavigationView
 import com.opencsv.CSVParserBuilder
 import com.opencsv.CSVReaderBuilder
 import com.opencsv.CSVWriter
@@ -35,6 +37,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        val navigationView: NavigationView = findViewById(R.id.navigation_view)
+        val header: View = navigationView.getHeaderView(0)
+        val textheader1: TextView = header.findViewById(R.id.nombreHeader)
+        val textheader2: TextView = header.findViewById(R.id.correoHeader)
+        textheader1.text= Datausuario.NomApe
+        textheader2.text= Datausuario.nombre+"@aloe.ulima.edu.pe"
+
+
         if (Datausuario.nombre=="admin") {
             binding.ReservaBtn.setVisibility(View.INVISIBLE)
             binding.GenerarDataBtn.setVisibility(View.VISIBLE)

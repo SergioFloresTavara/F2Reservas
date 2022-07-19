@@ -46,6 +46,10 @@ class Y01YourBookingFragment : Fragment() {
 
         initRecyclerView()
 
+        binding.VolverBtn.setOnClickListener{
+            startActivity(Intent(context,BookingActivity::class.java))
+        }
+
         binding.EliminarBtn.setOnClickListener{
             if(Datausuario.nombre!="admin" && Datausuario.nombre!=null){
                 if(seleccionado=="si"){

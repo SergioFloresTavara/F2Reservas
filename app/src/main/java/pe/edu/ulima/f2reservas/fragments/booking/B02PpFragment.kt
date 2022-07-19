@@ -48,12 +48,12 @@ class B02PpFragment : Fragment() {
         }
         initRecyclerView()
 
-        //////LOGICA RESERVA PINTANDO RECYCLER
+
         binding.ReservarBtn.setOnClickListener{
             if(seleccionado=="si"){
                 lifecycleScope.launch(Dispatchers.IO){
-                Reservasconnect.database.resultadosDao().ReservaAmb("Ping pong",horario!!, set!!, Datausuario.nombre!!)}
-                fragmentManager?.beginTransaction()!!.replace(R.id.fragmentContainerView,B06ReservaExitosaFragment()).commit()
+                Reservasconnect.database.resultadosDao().ReservaAmb("Ping pong",horario!!, set!!, Datausuario.nombre!!)
+                lifecycleScope.launch(Dispatchers.Main) {fragmentManager?.beginTransaction()!!.replace(R.id.fragmentContainerView,B06ReservaExitosaFragment()).commit()}}
             }else{
                 Toast.makeText(
                     context,

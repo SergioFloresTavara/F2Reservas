@@ -20,12 +20,11 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        Gestor.obtenerUsuarios()
 
         if(Datausuario.guar=="0" && Datausuario.contra!=null){
             val nom: String? =Datausuario.nombre
             val con: String? =Datausuario.contra
-
+            binding.checkBox.isChecked=true
             binding.eteUsuario.setText(nom)
             binding.eteContraseA.setText(con)
         }
@@ -40,6 +39,7 @@ class LoginActivity : AppCompatActivity() {
                     Datausuario.nombre=nombre
                     Datausuario.contra=contra
                     Datausuario.guar="0"
+                    Datausuario.NomApe=Gestor.obtenerNombre(nombre,usuarios)
                     startActivity(Intent(this, MainActivity ::class.java))
 
                 }else{

@@ -32,13 +32,13 @@ interface ResultadosDao{
     @Query("SELECT actividad,horario,`set` FROM Resultados WHERE disponibilidad ='Reservado'")
     fun BusquedaAdmin() : List<DataYB>
 
-    @Query("UPDATE Resultados SET usuario =:usuario_resul AND disponibilidad ='Reservado'  WHERE actividad =:actividad_resul and horario =:horario_resul and `set` =:set_resul and disponibilidad ='Disponible'")
+    @Query("UPDATE Resultados SET usuario =:usuario_resul , disponibilidad ='Reservado'  WHERE actividad =:actividad_resul and horario =:horario_resul and `set` =:set_resul and disponibilidad ='Disponible'")
     fun ReservaAmb(actividad_resul: String,horario_resul: String,set_resul: String,usuario_resul: String)
 
-    @Query("UPDATE Resultados SET usuario = '' AND disponibilidad ='Disponible' WHERE usuario =:usuario_resul and actividad =:actividad_resul and horario =:horario_resul and `set` =:set_resul and disponibilidad ='Reservado' ")
+    @Query("UPDATE Resultados SET usuario = '' , disponibilidad ='Disponible' WHERE usuario =:usuario_resul and actividad =:actividad_resul and horario =:horario_resul and `set` =:set_resul and disponibilidad ='Reservado' ")
     fun borrarUser(actividad_resul: String,horario_resul: String,set_resul: String,usuario_resul: String)
 
-    @Query("UPDATE Resultados SET usuario = '' AND disponibilidad ='Disponible' WHERE actividad =:actividad_resul and horario =:horario_resul and `set` =:set_resul and disponibilidad ='Reservado'")
+    @Query("UPDATE Resultados SET usuario = '' , disponibilidad ='Disponible' WHERE actividad =:actividad_resul and horario =:horario_resul and `set` =:set_resul and disponibilidad ='Reservado'")
     fun borrarAdmin(actividad_resul: String,horario_resul: String,set_resul: String)
 
 

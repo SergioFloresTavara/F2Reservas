@@ -5,5 +5,6 @@ class Datausuario {
         var nombre: String?=null
         var contra: String?=null
         var guar: String?=null
+        var NomApe: String?=null
     }
 }
